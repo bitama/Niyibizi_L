@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container bg-primary p-4">
+        {% for message in messages %}
+        <p class="text-warning">{{message}}</p>
+        {% endfor %}
+    
+        <form action="/exam/trips/{{trips.id}}/update" method="POST">
+            {% csrf_token %}
+            <label for="name" class="form-lebel">Destination</label>
+            <input type="text" name="destination" id=" name" class="form-control" value="{{trips.destination}}">
+            <label for="name" class="form-lebel">Start_Date</label>
+            <input type="date" name="start_date" id= "name" class="form-control" value="{{trips.start_date}}">
+            <label for="name" class="form-lebel">End_Date</label>
+            <input type="date" name="end_date" id= "name" class="form-control" value="{{trips.end_date}}">
+            <label for="name" class="form-lebel">Plan</label>
+            <textarea name="plan" id="name" class="form-control"></textarea>
+            <input type="submit" value="Submit" class="btn btn-success mt-3" value="{{trips.plan}}">
+        </form>
+    </div>
+    <div class="container mt-4"><a href="/exam">Go back to Home </a></div>
+</body>
+</html>
